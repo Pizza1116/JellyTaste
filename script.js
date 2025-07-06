@@ -33,13 +33,13 @@ function render() {
   const box = document.getElementById("main-box");
   if (idx === 0) {
     box.innerHTML = `
-      <label>${questions[0].q}</label><br>
+      <label class="name-label">${questions[0].q}</label><br>
       <input type="text" id="nameInput" class="input-box" placeholder="이름">
       <br><button onclick="nextName()">다음</button>
     `;
   } else if (idx < questions.length) {
     const q = questions[idx];
-    box.innerHTML = `<div>${idx}. ${q.q}</div>`;
+    box.innerHTML = `<div class="question">${idx}. ${q.q}</div>`;
     q.opts.forEach((opt, i) => {
       box.innerHTML += `<button onclick="selectAnswer(${i})">${opt}</button>`;
     });
@@ -91,7 +91,7 @@ function submitForm() {
       setTimeout(() => {
         document.getElementById("main-box").innerHTML = `
           <h2>서영이가 한국 오면 확인! ㅎㅎ</h2>
-          <p style="font-size:1.1rem;">선물 받을 준비하세요 🎁</p>
+          <div class="result-msg">선물 받을 준비하세요 🎁</div>
         `;
       }, 2500);
     });
