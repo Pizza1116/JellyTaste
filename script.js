@@ -11,7 +11,7 @@ const entry = {
   q8: "entry.103327156",
   q9: "entry.699264575"
 };
-const formUrl = "https://forms.gle/xdtQ3WtKcJGoxXQEA";
+const formUrl = "https://docs.google.com/forms/d/e/1FAIpQLSfgi7ntpJg875Ln8QO9OnG1lQZiArtWdQHJ7TqQNAfJjcDP0Q/viewform?usp=header";
 
 const questions = [
   { q: "이름을 입력하세요.", type: "text" },
