@@ -1,0 +1,74 @@
+body {
+  font-family: 'Arial Rounded MT Bold', Arial, sans-serif;
+  background: #fff5fa;
+  margin: 0;
+  min-height: 100vh;
+}
+#app {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 32px 12px 80px 12px;
+}
+h1 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+#main-box {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 4px 16px #ffc2ef33;
+  padding: 32px 12px;
+}
+button {
+  width: 95%;
+  font-size: 1.1rem;
+  margin: 0.5rem 0;
+  padding: 14px 0;
+  border-radius: 12px;
+  border: none;
+  background: #ffb6c1;
+  color: #4c0033;
+  font-weight: bold;
+  transition: background .2s;
+}
+button:active {
+  background: #f08080;
+}
+.input-box {
+  width: 90%;
+  font-size: 1.1rem;
+  margin: 1rem auto 2rem auto;
+  display: block;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ffb6c1;
+  box-sizing: border-box;
+}
+#backBtn {
+  margin-top: 20px;
+  background: #ffd700;
+  color: #402e02;
+  font-size: 1rem;
+}
+@media (max-width: 600px) {
+  #app {
+    padding: 10px 1vw 50px 1vw;
+  }
+  #main-box {
+    padding: 22px 3vw;
+  }
+}
+
+.loader {
+  margin: 24px auto;
+  border: 8px solid #ffe4e1;
+  border-top: 8px solid #ffb6c1;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  0% { transform: rotate(0deg);}
+  100% { transform: rotate(360deg);}
+}
