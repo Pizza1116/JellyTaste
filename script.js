@@ -69,32 +69,38 @@ function back() {
 function showSubmit() {
   document.getElementById("main-box").innerHTML = `
     <h2>제출하시겠어요?</h2>
-    <button onclick="submitForm()">결과 확인</button>
+    <button onclick="submitNetlifyForm()">결과 확인</button>
     <br><button id="backBtn" onclick="back()">← 이전 질문</button>
   `;
 }
 
-function submitForm() {
+function submitNetlifyForm() {
+  // Netlify에서 인식하도록 form-name hidden 필드 추가
   const data = new FormData();
-  data.append(entry.name, answers[0]);
-  for (let i=1; i<=9; i++) {
-    data.append(entry["q"+i], answers[i]);
+  data.append('form-name', 'haribo-survey');
+  for (let i = 0; i < answers.length; i++) {
+    data.append(`q${i}`, answers[i]);
   }
-  fetch(formUrl, { method: "POST", body: data, mode:"no-cors" })
-    .then(() => {
-      // 1. '결과는...' 로딩 화면 먼저 표시
-      document.getElementById("main-box").innerHTML = `
-        <h2>결과는...</h2>
-        <div class="loader"></div>
-      `;
-      // 2. 2.5초(2500ms) 뒤에 진짜 결과 안내
-      setTimeout(() => {
-        document.getElementById("main-box").innerHTML = `
-          <h2>서영이가 한국 오면 확인! ㅎㅎ</h2>
-          <div class="result-msg">선물 받을 준비하세요 🎁</div>
-        `;
-      }, 2500);
-    });
+
+  // 1. 결과는...(로딩) 바로 띄우기
+  document.getElementById("main-box").innerHTML = `
+    <h2>결과는...</h2>
+    <div class="loader"></div>
+  `;
+
+  // 2. Netlify에 비동기 POST (AJAX)
+  fetch('/', {
+    method: 'POST',
+    body: data,
+  });
+
+  // 3. 기존처럼 안내문 띄우기
+  setTimeout(() => {
+    document.getElementById("main-box").innerHTML = `
+      <h2>서영이가 한국 오면 확인! ㅎㅎ</h2>
+      <div class="result-msg">선물 받을 준비하세요 🎁</div>
+    `;
+  }, 2500);
 }
 
 render();
