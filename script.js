@@ -98,7 +98,7 @@ function submitNetlifyForm() {
   setTimeout(() => {
     document.getElementById("main-box").innerHTML = `
       <h2>서영이가 한국 오면 확인! ㅎㅎ</h2>
-      <div class="result-msg">선물 받을 준비하세요 🎁</div>
+      <div class="result-msg">선물 받을 준비하세요!! (꺄~🙈🎁)</div>
     `;
   }, 2500);
 }
